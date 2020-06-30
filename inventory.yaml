@@ -1,0 +1,4 @@
+all:
+  hosts:
+    mx960-1.sdn-test.grnoc.iu.edu:
+    mx960-2.sdn-test.grnoc.iu.edu:

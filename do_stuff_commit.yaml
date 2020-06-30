@@ -1,0 +1,23 @@
+---
+- name: Examples of filling in a template and installing on a device
+  hosts: "{{ included_hosts }}"
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+
+  tasks:
+    - name: Process the template
+      template:
+        src: "template.j2"
+        dest: "{{ inventory_hostname }}.conf"
+        
+    - name: Send to Device
+      juniper_junos_config:
+        load: "replace"
+        format: "text"
+        timeout: 60
+        commit: true
+        comment: "Demo for FNC"
+        diff: false
+        src: "{{ inventory_hostname }}.conf"

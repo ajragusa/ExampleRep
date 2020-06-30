@@ -1,0 +1,1 @@
+ansible-playbook -i inventory.yaml do_stuff.yaml --extra-vars "included_hosts=mx960-1.sdn-test.grnoc.iu.edu" -k
