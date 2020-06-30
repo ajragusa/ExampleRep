@@ -12,6 +12,11 @@
         src: "template.j2"
         dest: "{{ inventory_hostname }}.conf"
         
+    - name: Commit the config
+      command: 
+        - "git add {{ inventory_hostname }}.config"
+        - "git commit -m 'Updating configuration'"
+        
     - name: Send to Device
       juniper_junos_config:
         load: "replace"
