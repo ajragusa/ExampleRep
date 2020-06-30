@@ -19,7 +19,7 @@
         
     - name: Send to Device
       juniper_junos_config:
-        load: "replace"
+        load: "merge"
         format: "text"
         timeout: 60
         commit: true
